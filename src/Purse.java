@@ -2,25 +2,34 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Purse {
-    // This class doesn't need a main. Only one main is needed and it's already contained within the
-    // "Main" class. Just put purse definition and logic here.
     Map<Denomination, Integer> cash = new HashMap<>();
 
-    void add(Denomination type, int num){
+    void add(Denomination type, int num) {
         // Adds a number of a particular denomination
         cash.put(type, num);
-        // I think this is right? I'll come back to this.
     }
 
-    double remove(Denomination type, int num){
-        // diminishes the money in the purse and returns that amount.
+    double remove(Denomination type, int num) {
+        cash.remove(type, num);
+        // Returns the value of the denomination times how many of that denomination was in the purse
+        return type.amt() * num;
     }
 
     double getValue() {
-        // returns the amount of money in the Purse
+        // Returns the amount of money in the Purse
+        double total = 0.0;
+        for (Map.Entry<Denomination, Integer> entry : cash.entrySet()) {
+            total += entry.getKey().amt() * entry.getValue();
+        }
+        return total;
     }
 
-    String toString() {
-        // returns a string representation of the Purse and its contents
+    String ToString() {
+        // Returns a string representation of the Purse and its contents
+        String string = "";
+        for (Map.Entry<Denomination, Integer> entry : cash.entrySet()) {
+            string += entry.getKey().name() + ":\t\t" + entry.getValue() + "\n";
+        }
+        return string;
     }
 }

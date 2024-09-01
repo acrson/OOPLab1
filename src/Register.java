@@ -1,23 +1,19 @@
 import java.util.Scanner;
 
 public class Register {
-    // This class also doesn't need a main. Just put register definition and logic here.
-    public Purse makeChange(double amt) {
-        // Create and return a Purse object
-    }
-
     // MAIN FUNCTION
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter an amount of change: ");
         double amount = in.nextDouble();
 
-        MakeChange(amount);
+        makeChange(amount);
     }
 
     // takes an amt and returns a Purse containing that amount in the fewest number of bills and coins.
-    Purse MakeChange(double amt)
+    public static Purse makeChange(double amt)
     {
+        Purse purse = new Purse(); // creates a new purse object to fill with money
         double change = amt; // Saves the amt value to another variable to be used later
         int quarters, dimes, nickels, pennies;
 
@@ -43,5 +39,7 @@ public class Register {
 
         System.out.println(change + " can be counted using: \n" + quarters + " Quarters\n" + dimes + " Dimes\n" +
                 nickels + " Nickels\n" + pennies + " Pennies");
+
+        return purse;
     }
 }
