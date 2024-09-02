@@ -1,8 +1,9 @@
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Purse {
-    Map<Denomination, Integer> cash = new HashMap<>();
+    Map<Denomination, Integer> cash = new LinkedHashMap<>();
 
     void add(Denomination type, int num) {
         // Adds a number of a particular denomination
@@ -27,9 +28,19 @@ public class Purse {
     String ToString() {
         // Returns a string representation of the Purse and its contents
         String string = "";
-        for (Map.Entry<Denomination, Integer> entry : cash.entrySet()) {
-            string += entry.getKey().name() + ":\t\t" + entry.getValue() + "\n";
+
+        if (this.getValue() < 0.005) {
+            string = "Empty Purse";
         }
+
+        else {
+            for (Map.Entry<Denomination, Integer> entry : cash.entrySet()) {
+                if (entry.getValue() > 0) {
+                    string += entry.getValue() + " " + entry.getKey().name() + "\n";
+                }
+            }
+        }
+
         return string;
     }
 }
