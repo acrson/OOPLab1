@@ -1,9 +1,15 @@
+// Carson Stell
+// 9/2/2024
+// OOP Lab 1: Making Change
+
 import java.awt.*;
 import javax.swing.*;
 
 public class MakingChange {
+    // MakingChange Main
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Making Change");
+        // Create frame
+        JFrame frame = new JFrame("Making Change - OOP Lab 1 by Carson Stell");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         RegisterPanel registerPanel = new RegisterPanel(); // Create RegisterPanel object
@@ -17,6 +23,5 @@ public class MakingChange {
         // Add the inputPanel from RegisterPanel to the top of the main panel
         frame.getContentPane().add(registerPanel.inputPanel);
         frame.getContentPane().add(registerPanel.changePanel);
-
     }
 }
